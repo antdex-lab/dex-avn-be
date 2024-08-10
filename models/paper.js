@@ -10,6 +10,10 @@ const PaperSchema = new Schema({
         type: Number,
         required : true,
     },
+    totalSQM:{
+        type: Number,
+        required : true,
+    },
     gsm:{
         type: String,
         required : true,

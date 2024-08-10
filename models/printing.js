@@ -1,20 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const InkSchema = new Schema({
-    color:{
+const PrintingSchema = new Schema({
+    printingSizePerJumboRoll:{
         type: String,
-        required: true,
-    },
-    sizeInKg:{
-        type: Number,
         required : true,
     },
-    pricePerKg:{
-        type: Number,
+    printingSize:{
+        type: String,
         required : true,
     },
-    totalPrice:{
+    inkUsed:{
         type: Number,
         required : true,
     },
@@ -24,4 +20,4 @@ const InkSchema = new Schema({
     },
 })
 
-module.exports = mongoose.model('Ink', InkSchema);
+module.exports = mongoose.model('Printing', PrintingSchema);

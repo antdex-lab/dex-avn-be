@@ -1,27 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const InkSchema = new Schema({
-    color:{
+const zFoldSchema = new Schema({
+    jumboEntry:{
         type: String,
-        required: true,
+        required : true,
     },
-    sizeInKg:{
+    modelSize:{
+        type: String,
+        required : true,
+    },
+    actualPacketPerJumboRoll:{
         type: Number,
         required : true,
     },
-    pricePerKg:{
+    manufacturedPacketPerJumboRoll:{
         type: Number,
         required : true,
     },
-    totalPrice:{
+    difference:{
         type: Number,
         required : true,
     },
-    dateOfEntry:{
+    DateOfEntry:{
         type: Date,
         default: Date.now,
     },
 })
 
-module.exports = mongoose.model('Ink', InkSchema);
+module.exports = mongoose.model('zFold', zFoldSchema);

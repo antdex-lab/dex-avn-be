@@ -1,27 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const InkSchema = new Schema({
-    color:{
+const CuttingSchema = new Schema({
+    printingSizeAsPerPrintingRoll:{
         type: String,
-        required: true,
+        required : true,
     },
-    sizeInKg:{
+    countForRoll:{
+        type: String,
+        required : true,
+    },
+    inkUsed:{
         type: Number,
         required : true,
     },
-    pricePerKg:{
+    corePerRoll:{
         type: Number,
         required : true,
     },
-    totalPrice:{
+    coreSize:{
         type: Number,
         required : true,
     },
-    dateOfEntry:{
+    cuttingDateOfEntry:{
         type: Date,
         default: Date.now,
     },
 })
 
-module.exports = mongoose.model('Ink', InkSchema);
+module.exports = mongoose.model('Cutting', CuttingSchema);

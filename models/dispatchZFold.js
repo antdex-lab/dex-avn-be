@@ -1,27 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const InkSchema = new Schema({
-    color:{
+const DispatchZSchema = new Schema({
+    packetModelPerSize:{
         type: String,
-        required: true,
+        required : true,
     },
-    sizeInKg:{
+    noOfpacket:{
         type: Number,
         required : true,
     },
-    pricePerKg:{
-        type: Number,
+    orderBy:{
+        type: String,
         required : true,
     },
-    totalPrice:{
-        type: Number,
-        required : true,
-    },
-    dateOfEntry:{
+    DateAndTime:{
         type: Date,
         default: Date.now,
     },
 })
 
-module.exports = mongoose.model('Ink', InkSchema);
+module.exports = mongoose.model('DispatchZ', DispatchZSchema);
