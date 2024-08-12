@@ -6,13 +6,35 @@ const Paper = require('../models/paper');
 // Create a new Paper item
 router.post('/', async (req, res) => {
     try {
-        const newPaper = new Paper(req.body);
-        const Paper = await newPaper.save();
-        res.json(Paper);
+        const { sizeInMM, sizeInMeter, pricePerSquareMeters } = req.body;
+
+        // Convert sizeInMM to meters
+        const sizeInMeters = sizeInMM / 1000;
+
+        // Calculate TotalSQM
+        const totalSQM = sizeInMeters * sizeInMeter;
+
+        // Calculate totalPrice
+        const totalPrice = totalSQM * pricePerSquareMeters;
+
+        // Create a new instance of the Paper model with calculated values
+        const newPaper = new Paper({
+            ...req.body,            // Spread the rest of the request body
+            totalSQM,               // Calculated totalSQM
+            totalPrice              // Calculated totalPrice
+        });
+
+        // Save the new Paper item to the database
+        const savedPaper = await newPaper.save();
+
+        // Respond with the saved Paper item
+        res.json(savedPaper);
     } catch (err) {
+        // Handle errors and send a 500 status with the error message
         res.status(500).json({ message: err.message });
     }
 });
+
 
 // Get all Paper items
 router.get('/', async (req, res) => {
