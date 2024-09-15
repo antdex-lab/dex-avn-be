@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Building the project...\"",
     "start": "node index.js"
   },
   "keywords": [],
@@ -19,7 +18,3 @@
     "mongoose": "^8.5.2"
   }
 }
-
-
-// alpha_dex
-// 017c61e97dcd0d0ab4e8cf62af4b8484
